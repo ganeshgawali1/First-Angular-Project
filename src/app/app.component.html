@@ -1,0 +1,140 @@
+<!--*************************************************************************************************************************-->
+
+<app-header></app-header><br><br>
+<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<div class="example-label">Raised</div>
+<div class="example-button-row">
+  <button mat-raised-button>Basic</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+  <button mat-raised-button disabled>Disabled</button>
+  <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+</div>
+
+
+<!--*************************************************************************************************************************-->
+
+
+<br>
+<p>
+  <ngb-alert [dismissible]="false">
+    <strong>Cute Warn ! </strong> You are such a nice Person
+  </ngb-alert>
+</p>
+ 
+
+<!--*************************************************************************************************************************-->
+
+
+<br><br>
+<h1>TO DO List</h1>
+<input type="text" placeholder="enter any task" #task/>
+<br>
+<button (click)="addv(task.value)">Add</button>
+<br>
+<ul *ngFor="let item of list">
+  <li>{{item.name}}  <button (click)="delete(item.id)">Remove</button></li>
+  
+</ul>
+
+
+<!--*************************************************************************************************************************-->
+
+
+<br><br>
+<form #basicforms="ngForm" (ngSubmit)="getd(basicforms.value)">
+  Name : <input type="text" ngModel name="name" placeholder="enter name"><br><br>
+  Email : <input type="text" ngModel name="email" placeholder="enter email"><br/><br/>
+  <button>Register</button>
+</form><br>
+<ul>
+  <li>{{userData.name}}</li>
+  <li>{{userData.email}}</li>
+</ul>
+<br>
+<div>
+  <app-user-list [item]="y"></app-user-list><br><br>
+  <button (click)="randval()">Random Value</button><br><br>
+</div><br>
+
+
+<!--*************************************************************************************************************************-->
+
+
+<div class="container">
+  <div>
+  <table border="1">
+  <tr>
+    <td>Sr No.</td>
+    <td>Name</td>
+    <td>Marks</td>
+  </tr>
+  <tr>
+    <td>{{Sr1}}</td>
+    <td>{{name1}}</td>
+    <td>{{marks1}}</td>
+  </tr>
+  <tr>
+    <td>{{Sr2}}</td>
+    <td>{{name2}}</td>
+    <td>{{marks2}}</td>
+  </tr>
+  <tr>
+    <td>{{sr3()}}</td>
+    <td>{{name3()}}</td>
+    <td>{{5*8}}</td>
+  </tr>
+</table>
+</div>
+<br>
+<ul *ngFor="let us of objus">
+ <li>{{us.name}}</li>
+ <li>{{us.email}}</li>
+ <li>{{us.mn}}</li>
+</ul>
+
+
+<!--*************************************************************************************************************************-->
+
+
+<h1 *ngIf="show; then ifblock else elseblock"></h1>
+<ng-template #ifblock>
+      <h1>I am in If Condition</h1>
+</ng-template>
+<ng-template #elseblock>
+    <h1>I am in else Condition</h1>
+</ng-template>
+<br>
+<h1 [style.color]="color">Style Bindding</h1>
+<button (click)="colors()">Update Color</button>
+<br>
+<h1 *ngFor="let id of users">
+  my friends name : {{id}}
+</h1>
+<br>
+
+<!--*************************************************************************************************************************-->
+
+<div>
+<input type="button" class="btn" value="first button" (click)="firstb('ganesh')">
+<input type="button" class="btn" value="Second button" (click)="Secondb('ganesh')"><br><br></div>
+<div>
+<input type="text" #ganesh (keyup)="getdata(ganesh.value)" ><br>
+<button class="btn" (click)="getdata('hii')">click</button>
+<br><br></div>
+<div>
+<input type="text" #bt name="Mytext box">
+<button class="btn" (click)="getval(bt.value)"> clock</button>
+<br><p>By work {{value}}</p>
+
+</div>
+
+</div>
+
+<!--*************************************************************************************************************************-->
+
+<!--Reusable Component-->
+<ul *ngFor="let tt of rearray">
+  <app-reuse-component [yy]='tt'></app-reuse-component>
+</ul>
